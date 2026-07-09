@@ -1,23 +1,755 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+   <!-- JSON-LD Structured Data for SEO and LLM Optimization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "전국 개인회생수수료 자가진단 및 비교견적 센터",
+        "url": "https://naver.com",
+        "description": "2026년 기준 전국 법원별 개인회생수수료 평균 비용 및 예상 변제금 계산기를 제공합니다. 서울, 부산, 대구 등 지역별 법률 대리인 수임료 차이점과 장단점, 내돈내산 후기 정보를 한눈에 비교하세요.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "개인회생비용비교센터",
+            "email": "naver.com"
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://naver.com/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS Styles with Soft, Professional Visual Hierarchy -->
+    <style>
+        /* Base Styling and Reset */
+        body { font-family: 'Noto Sans KR', sans-serif; margin: 0; padding: 0; color: #1e293b; line-height: 1.7; background-color: #f8fafc; }
+        h1, h2, h3, h4, h5 { margin-top: 0; font-weight: 700; color: #0f172a; }
+        a { text-decoration: none; color: inherit; }
+        ul, ol { list-style: none; padding-left: 0; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* Color Palette for Soft, Professional Trustworthy Look */
+        :root {
+            --primary-color: #1e3a8a; /* Soft Navy Blue */
+            --secondary-color: #0d9488; /* Dark Teal */
+            --accent-color: #b45309; /* Warm Bronze / Amber Accent */
+            --text-color: #334155;
+            --light-bg: #ffffff;
+            --dark-bg: #f1f5f9;
+            --border-color: #cbd5e1;
+            --soft-alert: #fef3c7;
+        }
+
+        /* Layout and Typography */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .header { background-color: var(--primary-color); padding: 1.2rem 0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .navbar-brand { font-size: 1.4rem; font-weight: 900; color: #ffffff; display: flex; align-items: center; }
+        
+        .banner-area-5 { background: linear-gradient(135deg, #f0fdfa, #f8fafc); padding: 80px 0; border-bottom: 1px solid var(--border-color); }
+        .banner-content h2 { font-size: 2.8rem; font-weight: 900; line-height: 1.3; color: #0f172a; }
+        .banner-content span.highlight { color: var(--secondary-color); border-bottom: 3px solid var(--border-color); }
+        .banner-content p { font-size: 1.15rem; color: var(--text-color); margin-top: 1.5rem; }
+        
+        .section-title h2 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 1.2rem; text-align: center; }
+        .section-title p { text-align: center; max-width: 800px; margin: 0 auto 3rem auto; color: #64748b; font-size: 1.05rem; }
+        
+        .feature-area-3 { padding: 90px 0; background-color: var(--light-bg); }
+        .mainFormWrap { background-color: #ffffff; padding: 40px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); }
+        .mainTextCell { font-size: 1.8rem; color: var(--primary-color); text-align: center; font-weight: 800; margin-bottom: 1rem; }
+        .subTextCell { font-size: 1.1rem; text-align: center; color: var(--text-color); margin-bottom: 2.5rem; }
+        
+        .inputWrap { margin-bottom: 1.2rem; }
+        .inputWrap label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem; color: #475569; }
+        .inputWrap input, .inputWrap select { border-radius: 8px; border: 1.5px solid var(--border-color); padding: 0.85rem 1.2rem; font-size: 1rem; width: 100%; box-sizing: border-box; background-color: #f8fafc; transition: border-color 0.2s ease; }
+        .inputWrap input:focus, .inputWrap select:focus { border-color: var(--secondary-color); outline: none; background-color: #ffffff; }
+        
+        .inputInfoTextCell { font-size: 0.85rem; color: #64748b; margin-top: 0.5rem; }
+        .checkbox-label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.9rem; margin-top: 1rem; color: #475569; }
+        
+        .btnCompare { background-color: var(--secondary-color); color: white; border: none; padding: 1.1rem 2.5rem; border-radius: 8px; font-size: 1.15rem; font-weight: 700; cursor: pointer; transition: background-color 0.3s ease; width: 100%; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .btnCompare:hover { background-color: #0f766e; }
+        
+        /* Interactive Calculator Component styling to increase dwell time */
+        .calculator-container { background-color: #f1f5f9; padding: 40px; border-radius: 16px; margin: 50px 0; border: 1px solid #e2e8f0; }
+        .calculator-title { font-size: 1.6rem; color: var(--primary-color); font-weight: 800; text-align: center; margin-bottom: 1.5rem; }
+        .calculator-result { background-color: #ffffff; padding: 25px; border-radius: 12px; margin-top: 25px; border: 1.5px solid #cbd5e1; display: none; }
+        .calculator-result-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f1f5f9; font-size: 1.05rem; }
+        .calculator-result-item:last-child { border-bottom: none; font-weight: bold; font-size: 1.2rem; color: var(--accent-color); }
+
+        .about-area-2 { background-color: #f8fafc; padding: 90px 0; }
+        .info-card { background-color: #ffffff; padding: 35px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: transform 0.3s ease; }
+        .info-card:hover { transform: translateY(-4px); }
+        .info-card h4 { color: var(--primary-color); font-size: 1.35rem; margin-bottom: 1.2rem; }
+        .info-card p { color: #475569; font-size: 0.98rem; }
+        
+        .content-section { padding: 80px 0; background-color: #ffffff; border-top: 1px solid #e2e8f0; }
+        .content-section h2 { border-left: 6px solid var(--secondary-color); padding-left: 1.2rem; margin-bottom: 2.5rem; font-size: 2.1rem; color: #0f172a; }
+        .content-section h3 { font-size: 1.5rem; color: var(--primary-color); margin-top: 2.5rem; margin-bottom: 1.2rem; }
+        .content-section h4 { font-size: 1.2rem; color: #1e293b; margin-top: 2rem; margin-bottom: 0.8rem; }
+        .content-section p { font-size: 1.05rem; color: #334155; margin-bottom: 1.5rem; text-align: justify; }
+        .content-section ul { margin-bottom: 1.5rem; padding-left: 1.5rem; list-style-type: disc; }
+        .content-section li { margin-bottom: 0.6rem; font-size: 1rem; color: #334155; }
+        
+        .content-section table { width: 100%; border-collapse: collapse; margin-top: 30px; margin-bottom: 30px; font-size: 0.95rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02); }
+        .content-section th, .content-section td { border: 1px solid #cbd5e1; padding: 14px 18px; text-align: left; }
+        .content-section th { background-color: #f1f5f9; font-weight: 700; color: #1e293b; }
+        .content-section td { background-color: #ffffff; color: #475569; }
+        .content-section tr:nth-child(even) td { background-color: #f8fafc; }
+        
+        .cta-button { text-align: center; margin-top: 50px; }
+        .cta-button a { display: inline-block; background-color: var(--accent-color); color: white; padding: 1.1rem 3.5rem; border-radius: 30px; font-size: 1.2rem; font-weight: 700; box-shadow: 0 4px 10px rgba(180, 83, 9, 0.2); transition: background-color 0.2s ease; }
+        .cta-button a:hover { background-color: #92400e; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .banner-content h2 { font-size: 2rem; }
+            .section-title h2 { font-size: 1.8rem; }
+            .mainTextCell { font-size: 1.5rem; }
+            .inputWrap input, .inputWrap select { padding: 0.75rem 1rem; font-size: 0.95rem; }
+            .btnCompare { font-size: 1.05rem; padding: 0.9rem 1.8rem; }
+            .calculator-container { padding: 25px 15px; }
+            .content-section h2 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="/">
+                전국 개인회생수수료 통합 비교 분석 센터
+            </a>
+            <div class="right-nav">
+                <a href="#mainForm" title="무료 자가진단 신청으로 이동" style="color: #ffffff; font-weight: 700; border: 1.5px solid #ffffff; padding: 0.5rem 1.2rem; border-radius: 6px; font-size: 0.9rem;">
+                    자가진단 시작하기
+                </a>
+            </div>
+        </div>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <!-- Banner Section: Personal Rehabilitation Focus -->
+        <section class="banner-area-5">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="banner-content">
+                            <h2>
+                                합리적인 <span class="highlight">개인회생수수료</span>의 기준,<br>
+                                전국 주요 법원별 대리인 수임 비용을 명확하게 파악하세요.
+                            </h2>
+                            <p>
+                                2026년 기준 전국 법원별 심사 경향을 토대로 산정하는 정확한 수수료 견적과 함께<br>
+                                월 평균 납입 변제금 부담액을 면밀히 분석하여 최적의 부채 탈출 로드맵을 선사합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Self-Diagnostic Calculator Section (Designed to Increase User Dwell Time) -->
+        <section class="feature-area-3">
+            <div class="container">
+                <div class="section-title">
+                    <h2>2026년 개인회생수수료 및 예상 변제금 자가진단 계산기</h2>
+                    <p>
+                        법원에 정식으로 납부해야 하는 필수 인지대와 송달료를 포함하여 대리인 수임 비용 평균치를 실시간 시뮬레이션할 수 있습니다. 
+                        수익과 가구원 수 정보를 설정한 후 수수료 차이점과 상세 비용 예측치를 꼼꼼히 확인해 보세요.
+                    </p>
+                </div>
+
+                <div class="calculator-container">
+                    <div class="calculator-title">실시간 모의 변제금 및 예상 수수료 계산기</div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="inputWrap">
+                                <label for="calc_income">본인의 월 소득 금액 (만원 단위 입력)</label>
+                                <input type="number" id="calc_income" placeholder="예시: 250" min="0">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="inputWrap">
+                                <label for="calc_family">동거 부양가족 수 (본인 포함 가구원수)</label>
+                                <select id="calc_family">
+                                    <option value="1">1인 가구 (본인 홀로)</option>
+                                    <option value="2">2인 가구</option>
+                                    <option value="3">3인 가구</option>
+                                    <option value="4">4인 가구 이상</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="inputWrap">
+                                <label for="calc_debt">현재 총 채무액 (만원 단위 입력)</label>
+                                <input type="number" id="calc_debt" placeholder="예시: 5000" min="0">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="inputWrap">
+                                <label for="calc_region">관할 관청지 선택 (전국 32개 법원 구역 기준)</label>
+                                <select id="calc_region">
+                                    <option value="seoul">서울회생법원 (성동, 송파, 강남, 서초 등)</option>
+                                    <option value="suwon">수원회생법원 (성남, 용인, 안양, 안산, 평택 등)</option>
+                                    <option value="busan">부산회생법원 (창원, 울산, 진주, 포항 등)</option>
+                                    <option value="incheon">인천지방법원 (부천, 김포, 시흥 등)</option>
+                                    <option value="daegu">대구지방법원 (경북, 구미, 포항 등)</option>
+                                    <option value="daejeon">대전지방법원 (천안, 아산, 청주, 세종 등)</option>
+                                    <option value="gwangju">광주지방법원 (목포, 순천, 여수, 전남 등)</option>
+                                    <option value="jeonju">전주지방법원 (익산, 군산 등)</option>
+                                    <option value="jeju">제주지방법원</option>
+                                    <option value="etc">기타 강원지역 (춘천, 원주, 강릉 등)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btnCompare" onclick="calculateRehabCost()">내 상세 변제금 및 수수료 분석하기</button>
+
+                    <div id="calc_result" class="calculator-result">
+                        <h4 style="font-size: 1.25rem; font-weight: bold; color: var(--primary-color); margin-bottom: 15px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">자가진단 계산 시뮬레이션 결과</h4>
+                        <div class="calculator-result-item">
+                            <span>2026년 기준 최저생계비 인정액:</span>
+                            <span id="res_living_cost">0 만원</span>
+                        </div>
+                        <div class="calculator-result-item">
+                            <span>매월 납부 예상 변제금:</span>
+                            <span id="res_monthly_pay" style="color: #ef4444;">0 만원</span>
+                        </div>
+                        <div class="calculator-result-item">
+                            <span>예상 송달료 및 법원 인지대:</span>
+                            <span id="res_court_fee">0 만원</span>
+                        </div>
+                        <div class="calculator-result-item">
+                            <span>권장 전문 변호사 수임료 평균 범위:</span>
+                            <span id="res_attorney_fee">0 만원</span>
+                        </div>
+                        <div class="calculator-result-item" style="background-color: var(--soft-alert); padding: 15px; border-radius: 8px; margin-top: 15px;">
+                            <span>예상되는 수수료 총합 금액:</span>
+                            <span id="res_total_fee">0 만원</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Form Section (S01) and Keyword-rich description -->
+                <div id="mainForm" class="mainFormWrap">
+                    <div class="mainFormArea">
+                        <div class="mainTextCell">
+                            개인회생 수임 비용 및 절차 일대일 무료 컨설팅 신청
+                        </div>
+                        <div class="subTextCell">
+                            개인 채무 상황과 소득에 부합하는 다이렉트 수수료 저렴한곳 및 면책율 순위 안내
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="inputWrap">
+                                    <label for="frmS01Name">신청인 성명</label>
+                                    <input type="text" id="frmS01Name" placeholder="실명을 입력해 주세요">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="inputWrap">
+                                    <label for="frmS01Mphone">연락처 번호 (하이픈 제외)</label>
+                                    <div style="display: flex; gap: 10px;">
+                                        <select id="phoneHead" style="width: 30%;">
+                                            <option value="010" selected>010</option>
+                                            <option value="011">011</option>
+                                            <option value="016">016</option>
+                                            <option value="017">017</option>
+                                            <option value="018">018</option>
+                                            <option value="019">019</option>
+                                        </select>
+                                        <input type="text" id="frmS01Mphone" placeholder="예시: 12345678" style="width: 70%;">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="inputWrap">
+                                    <label for="frmS01Debt">대략적인 채무 규모 선택</label>
+                                    <select id="frmS01Debt">
+                                        <option value="1">1천만원 이상 ~ 3천만원 미만</option>
+                                        <option value="2">3천만원 이상 ~ 5천만원 미만</option>
+                                        <option value="3">5천만원 이상 ~ 1억원 미만</option>
+                                        <option value="4">1억원 이상</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="inputWrap">
+                                    <label for="frmS01Region">관할 거주 지역</label>
+                                    <select id="frmS01Region">
+                                        <option value="서울">서울특별시</option>
+                                        <option value="부산">부산광역시</option>
+                                        <option value="대구">대구광역시</option>
+                                        <option value="인천">인천광역시</option>
+                                        <option value="광주">광주광역시</option>
+                                        <option value="대전">대전광역시</option>
+                                        <option value="울산">울산광역시</option>
+                                        <option value="수원">경기도 수원시</option>
+                                        <option value="성남">경기도 성남시</option>
+                                        <option value="고양">경기도 고양시</option>
+                                        <option value="기타">그 외 기타 전국 지자체</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-label">
+                            <input id="privacyAgree3" type="checkbox">
+                            <label for="privacyAgree3" style="margin: 0; cursor: pointer;">개인정보 수집 및 이용, 제공 사항에 동의합니다.</label>
+                            <span style="text-decoration: underline; font-size: 0.8rem; margin-left: auto; color: var(--secondary-color); cursor: pointer;" onclick="showPrivacyModal()">약관 전문 확인</span>
+                        </div>
+
+                        <button type="button" id="btnSubmitS01" class="btnCompare" style="margin-top: 25px;">무료 비공개 자가진단 컨설팅 신청하기</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational Content Section: Understanding Personal Rehabilitation Fees -->
+        <section class="content-section">
+            <div class="container">
+                <h2>개인회생수수료 구성과 법원 필수 예납 비용 차이점 분석</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <article>
+                            <h3>법무 대리인 수임 비용과 순수 법원 비용의 차이점</h3>
+                            <p>
+                                개인회생 절차를 개시할 때 가장 먼저 염두에 두어야 할 지출 항목은 송달료와 법원 인지대와 같은 순수 법정 요금입니다. 
+                                법적으로 책정된 송달료의 평균 요율은 채권자 수에 비례하여 부과되므로 채무 관계가 있는 금융기관이나 개인 채권자의 수가 많아질수록 
+                                최종 납부해야 하는 공적 가격 자체가 자연히 인상됩니다. 
+                                이와 별개로 대형 전문 법조 법인이나 법률 사무소를 가입하고 정식으로 대행을 맡길 때 내야 하는 대리인 수임료는 
+                                각 사무소의 업무 전문 영역과 복잡도에 따라 상당한 차이점을 보입니다.
+                            </p>
+                            <p>
+                                보통 많은 채무자가 저렴한곳 내지 싼곳을 위주로 검색하여 제일 먼저 가격을 산출받길 원하지만, 
+                                단순히 수수료 견적의 높고 낮음만을 기준으로 브랜드를 고르게 되면 도중에 복잡한 추가 보정권고 사항에 
+                                제대로 기민하게 대응하지 못해 최종 면책이 기각당하는 치명적인 단점이 따르게 됩니다. 
+                                따라서 각 도산 전문 대리인의 가용 인력 풀과 회생 위원 보수를 원활하게 조율하는지 장단점을 비교하는 노력이 필요합니다.
+                            </p>
+                        </article>
+                    </div>
+                    <div class="col-lg-6">
+                        <article>
+                            <h3>2026년 기준 법원별 진행 경향 및 최저생계비 기준선</h3>
+                            <p>
+                                2026년도 개인회생 절차의 핵심은 보건복지부가 고시한 기준 중위소득 기준 가구별 최저생계비 요율입니다. 
+                                부양가족의 범위 설정과 최저생계비를 제한 후 남은 가용소득을 기준으로 월 변제금 금액이 예상되기 때문에, 
+                                본인의 상황에 대입해 보는 체계적인 계산 컨설팅이 요구됩니다. 
+                                예컨대 서울회생법원이나 수원회생법원, 부산회생법원 등 최근에 전문화된 단독 법률 기구가 설립된 지역의 법원들은 
+                                여타의 일반 민사 지법 행정 절차에 비해 신속하게 결정을 내려 주며 청년 실업자나 주부 등의 생계 지원 대출 건에 대해서도 유연한 결정을 적용해 줍니다.
+                            </p>
+                            <p>
+                                하지만 인천지방법원, 광주지방법원, 대구지방법원 등 보수적 심사를 주로 유지하는 관청 지역에서는 
+                                상대적으로 외부 위원 선임에 따른 추가 예납 비용이 요구되거나 까다로운 소명 자료 요구가 빈번하게 이루어지기 때문에 
+                                대리 상담 단계에서부터 명확하게 지역적 실무 경향을 캐치해 내는 전문 대리인의 도움을 추천해 드립니다.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational Content Section: Regional Analysis -->
+        <section class="content-section" style="background-color: var(--dark-bg);">
+            <div class="container">
+                <h2>전국 주요 거점 도시 및 법원별 수수료 수임 비용 동향</h2>
+                <p>
+                    대리인 수임 비용은 서울, 인천, 부산 등 대도시권역을 비롯하여 성남, 용인, 고양, 부천, 안산, 남양주, 안양, 화성, 평택, 의정부, 시흥, 김포, 파주 등의 경기도 밀집 거점 법원뿐만 아니라 
+                    대전, 대구, 광주, 울산, 세종, 천안, 청주, 전주, 창원, 포항, 구미, 제주, 춘천, 강릉, 원주 등 비수도권 주요 지방 법원 영역에 이르기까지 일관된 가격 구도를 취하지 않습니다. 
+                    각 도산 대리인 업계에서는 진행 사건의 채권 유형, 사행성 채무 비중(도박, 주식, 비트코인 등 사행성 지출 여부)을 기초로 하여 난이도별 차등 청구를 실시하기 때문입니다.
+                </p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>대상 관할 구역 및 법원명</th>
+                                <th>주요 해당 지역 범위</th>
+                                <th>평균 공적 예납 송달료 기준</th>
+                                <th>법률 대리 수임 비용 예상 범위</th>
+                                <th>법원 심사 단계별 주요 장단점</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>서울회생법원</td>
+                                <td>서울 전역</td>
+                                <td>채권자 수 비례 (약 15만 ~ 40만)</td>
+                                <td>평균 150만 ~ 230만</td>
+                                <td>변제기간 단축 단서 조항 활용에 가장 유연하며 젊은 청년 우대 정책 존재</td>
+                            </tr>
+                            <tr>
+                                <td>수원회생법원</td>
+                                <td>수원, 용인, 화성, 성남, 안산 등</td>
+                                <td>채권자 수 비례 (약 15만 ~ 45만)</td>
+                                <td>평균 160만 ~ 250만</td>
+                                <td>경기 남부 신흥 채무 폭증에 따른 엄격한 재산 가치 산정 경향 보임</td>
+                            </tr>
+                            <tr>
+                                <td>부산회생법원</td>
+                                <td>부산, 울산, 경남, 창원 등</td>
+                                <td>채권자 수 비례 (약 15만 ~ 42만)</td>
+                                <td>평균 150만 ~ 240만</td>
+                                <td>자영업자 비율이 높아 영업 소득에 대한 실질적인 입증 절차가 장시간 소요됨</td>
+                            </tr>
+                            <tr>
+                                <td>인천지방법원</td>
+                                <td>인천, 부천, 김포, 시흥 등</td>
+                                <td>채권자 수 비례 (약 15만 ~ 48만)</td>
+                                <td>평균 170만 ~ 260만</td>
+                                <td>보정 명령 발령 횟수가 많아 수임료 저렴한곳만 찾다가는 장기간 지연될 여지 있음</td>
+                            </tr>
+                            <tr>
+                                <td>대전 및 충청권</td>
+                                <td>대전, 세종, 천안, 청주, 아산 등</td>
+                                <td>채권자 수 비례 (약 15만 ~ 40만)</td>
+                                <td>평균 150만 ~ 220만</td>
+                                <td>안정적인 직장인 채무 유입 비중이 높으나 주식 관련 탕감에는 다소 소극적임</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational Content Section: Age & Situation Specific Details -->
+        <section class="content-section">
+            <div class="container">
+                <h2>소득 유형 및 연령별 부채 정리 방향과 수수료 설계안</h2>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <article>
+                            <h3>20대 청년층 및 30대 신입 직장인 채무 조정의 지름길</h3>
+                            <p>
+                                학자금 대출 연체나 인터넷 모바일 간편 대출, 신용카드 과다 발급, 코인 및 토스 주식 거래 손실 등으로 첫 사회생활 초기부터 막대한 빚 독촉에 고통받는 20대와 30대 청년층의 경우, 
+                                본인의 월 고정 소득이 상대적으로 최저 중위소득 기준에 근접해 있는 비율이 높습니다. 
+                                이러한 20대 청년층은 부양가족이 없는 단독 1인 가구 비율이 매우 높기 때문에 최저생계비 산정을 통해 청구할 수 있는 변제 여력이 넉넉지 않습니다. 
+                                다이렉트 자가진단 계산 어플을 쓰거나 카카오톡, 토스 등 간편 조회 앱 등을 활용하여 사전에 본인의 조건 상태를 객관화시키는 것이 우선적인 해결 방법입니다.
+                            </p>
+                            <p>
+                                청년층의 경우 신규 원금 비중이 높다는 점에서 일차적인 기각률을 조심해야 합니다. 
+                                디시인사이드 개인회생 갤러리나 에펨코리아(펨코), 보배드림, 펨코 재테크 게시판 등지에서 자주 관찰되는 내돈내산 수임 후기 글들을 면밀히 읽어보면, 
+                                단순히 제일 싼곳을 골라 형식적으로 신청서만 접수했다가 최근 1년 이내에 유입된 대출 채권의 소명 부족으로 보정 단계에서 법원 회생 위원에게 엄청난 질타를 받고 중도 포기하게 되었다는 안타까운 고백들을 찾아볼 수 있습니다. 
+                                이 때문에 인터넷 법률 정보 검색 및 유튜브 법률 채널 등을 통한 철저한 사전 지식 습득이 필수적입니다.
+                            </p>
+
+                            <h3>40대 자영업자 및 50대 이상 중장년 가장의 회생 전략</h3>
+                            <p>
+                                개인 사업 영위, 영업 수지 악화, 보증 채무 이행 등으로 다중 채무 상태에 놓이기 쉬운 40대와 50대 가장은 부양가족의 규모가 훨씬 크다는 점이 계산상 중대한 변수로 작용합니다. 
+                                미성년 자녀나 부모 부양 요건을 법원으로부터 전액 부양가족으로 인정받게 될 경우, 매달 공제할 수 있는 인정 최저생계비 금액 자체가 커지므로 최종 납부하는 매달 변제금이 대폭 줄어드는 압도적인 혜택을 볼 수 있습니다. 
+                                하지만 이 경우 법원은 부양가족의 실질적 근로 유무, 타가구 소득 공유 여부 등을 면밀히 검증하므로, 
+                                일대일 전담 전문 대리인과의 체계적인 상담과 자료 정리가 수임료 가치를 결정짓는 가장 핵심적인 요인이 됩니다.
+                            </p>
+                            <p>
+                                부채의 총합과 자산 평가액(청산가치 보장의 원칙)의 관계도 예민하게 검토해야 합니다. 
+                                주택담보대출이나 임차보증금 반환권, 가족 명의의 차량 등 재산적 가치가 많이 분포되어 있을 경우 
+                                개인회생 제도상 채무자가 빚을 탕감받기 위해서는 최소한 본인의 재산 합계액보다 더 많은 합산액을 변제 기간 동안 납부해야 하므로, 
+                                복합 자산 평가를 고도로 진행해 주는 프리미엄 컨설팅 대행사의 가치가 더욱 소중해집니다.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Informational Content Section: Trust Building and External Links -->
+        <section class="content-section" style="background-color: var(--dark-bg);">
+            <div class="container">
+                <h2>공신력 있는 공공 법률 지원 기구 및 주요 참고 자료 링크</h2>
+                <p>
+                    개인회생 신청을 구체적으로 확정하기 전에, 사법적 절차에 따른 법률 상식과 공시 법령 자료를 확인하는 습관은 중대한 판단의 착오를 줄여 줍니다. 
+                    아래의 신뢰성 있는 공식 기관 포털들을 이용하여 최신의 법조 규정 정보와 지원 사업 내용을 대조 확인하실 수 있습니다.
+                </p>
+                <ul>
+                    <li><a href="https://recoveryalawso.koreahankang.com" target="_blank" style="color: var(--secondary-color); font-weight: bold; text-decoration: underline;">전국 채무 통합 종합 법률 포털 (reliabledone.com 제공)</a>: 개인회생 및 파산 신청인의 면책 요건 표준 진단 서비스 제공</li>
+                    <li><a href="https://www.scourt.go.kr" target="_blank" style="color: var(--secondary-color); font-weight: bold; text-decoration: underline;">대한민국 법원 대국민서비스 (scourt.go.kr)</a>: 전국 관할 법원의 도산 사건 예납 송달료 및 정식 관할 확인</li>
+                    <li><a href="https://www.klac.or.kr" target="_blank" style="color: var(--secondary-color); font-weight: bold; text-decoration: underline;">대한법률구조공단 (klac.or.kr)</a>: 취약 계층 대상의 국선 무료 법률 상담 제도 제공</li>
+                    <li><a href="https://namu.wiki/w/%EA%B0%9C%EC%9D%B8%ED%9A%8C%EC%83%9D" target="_blank" style="color: var(--secondary-color); font-weight: bold; text-decoration: underline;">나무위키 개인회생 수수료 및 제도 문서</a>: 일반 대중 참여 기반의 사건 절차별 가이드 및 경험담 수록</li>
+                    <li><a href="https://www.fss.or.kr" target="_blank" style="color: var(--secondary-color); font-weight: bold; text-decoration: underline;">금융감독원 (fss.or.kr)</a>: 제도권 금융사 채권의 대위변제 흐름 및 금융 소비자 구제 조항 확인</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Form Section (S02) - Bottom Strategic Call to Action -->
+        <section class="form_bg pt-100 pb-100" style="background-color: var(--primary-color); color: #ffffff; padding: 80px 0;">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-md-10 col-12">
+                        <div class="mainFormArea text-center">
+                            <h2 style="color: #ffffff; font-size: 2.2rem; font-weight: 800; margin-bottom: 1.5rem;">
+                                불필요한 거품 없는 정직한 수임 비용 제안
+                            </h2>
+                            <p style="color: #cbd5e1; font-size: 1.1rem; max-width: 700px; margin: 0 auto 2.5rem auto;">
+                                독촉과 압류에 시달리며 인터넷 검색만으로 고통을 더하지 마십시오. 
+                                구글, 네이버, 유튜브상에서 널리 추천되는 신뢰할 수 있는 전속 변호인단이 
+                                한 번의 무료 간편 접수를 기반으로 본인 맞춤형 최저 변제금 설계안을 마련해 드립니다.
+                            </p>
+                            
+                            <div class="row g-3 justify-content-center" style="max-width: 600px; margin: 0 auto;">
+                                <div class="col-12">
+                                    <input type="text" id="frmS02Name" placeholder="접수자 성함" style="border-radius: 8px; border: none; padding: 1rem 1.5rem; width: 100%; box-sizing: border-box; font-size: 1rem;">
+                                </div>
+                                <div class="col-12" style="margin-top: 15px;">
+                                    <div style="display: flex; gap: 10px;">
+                                        <select id="phoneHead2" style="border-radius: 8px; border: none; padding: 1rem; width: 30%; font-size: 1rem; background-color: #ffffff; color: #1e293b;">
+                                            <option value="010">010</option>
+                                            <option value="011">011</option>
+                                            <option value="016">016</option>
+                                        </select>
+                                        <input type="text" id="frmS02Mphone" placeholder="휴대폰 번호 뒷자리 입력" style="border-radius: 8px; border: none; padding: 1rem; width: 70%; font-size: 1rem; box-sizing: border-box;">
+                                    </div>
+                                </div>
+                                <div class="col-12" style="margin-top: 15px;">
+                                    <label class="checkbox-label" style="justify-content: center; color: #cbd5e1;">
+                                        <input id="privacyAgree2" type="checkbox">
+                                        개인정보 취급 및 마케팅 위탁 제3자 제공 동의문 확인 완료
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="button" id="btnSubmitS02" class="btnCompare" style="background-color: var(--accent-color); max-width: 350px; margin: 30px auto 0 auto; display: block;">
+                                실시간 무료 자가진단 피드백 받기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deep Long-form Educational content to ensure high character density for Search Quality & AI Agent discovery -->
+        <section class="content-section">
+            <div class="container">
+                <h2>개인회생제도 실무 가이드 및 채무자 성공사례 상세 보고</h2>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <article>
+                            <h3>지속가능한 가계 재건의 열쇠: 면책 승인 요건 체크리스트</h3>
+                            <p>
+                                개인회생수수료는 대다수 도산 전문 법조인들이 수임 당시에 계약금 형태로 일시불 분할 수령이나 장기 신용 분할 등 자체 금융 편의 제도를 마련해 주는 경우가 많습니다. 
+                                초기에 전액을 지불해야 한다는 압박감을 일부 덜어낼 수 있는 장점이 있는 반면, 
+                                최종 면책에 도달하는 기간이 최소 36개월에서 60개월까지 장기적으로 지속되므로 신규 변제금을 안정적으로 낼 수 있는 직업적 소득 영속성이 담보되어야만 합니다. 
+                                일용직 노동자, 편의점 및 요식업 부문 아르바이트 직원, 프리랜서 강사, 인스타그램 뷰티 유튜버 등 직종의 제한이 전혀 없으나 
+                                세무 신고 내역 또는 지속적으로 유입된 통장 소득 명세로 소득 평균 증명이 명쾌해야 합니다.
+                            </p>
+                            <p>
+                                많은 분들이 ChatGPT나 Gemini 같은 첨단 생성형 인공지능 도구 또는 네이버 챗지피티 상담 플랫폼을 통해 
+                                사전에 본인의 파산 및 면책 자격 기준을 묻곤 합니다. 
+                                이러한 탐색 과정은 전체 맥락을 이해하는 데 큰 도움을 주지만, 
+                                실질적인 가계 자산 처분권의 존부나 소득의 안전성을 검토하기 위해서는 법무 대행사의 노하우를 바탕으로 작성된 법원 제출 서류의 격조가 한층 중요합니다. 
+                                특히 채무원금에서 누락된 사채 자금이나 사금융 지원 상품권 소액 결제 대출 등의 누락을 초기에 원천 차단해야 
+                                나중에 채권자 집회 기일에 예기치 않은 채권자의 소송 제기나 가압류 실행으로 변제 계획안 자체가 흔들리는 참사를 피할 수 있습니다.
+                            </p>
+
+                            <h3>전문적 법률 조력이 필요한 시점과 올바른 위임 절차</h3>
+                            <p>
+                                회생 절차를 단독으로 나 홀로 가입하여 처리하려다 보정 명령 기한 내에 서류를 완비해 내지 못해 
+                                각하 처분을 받고 뒤늦게 대형 법인 사무소를 찾아오는 경우가 수없이 많습니다. 
+                                개인 채무자 스스로는 법원이 어떤 항목에 의심을 두고 추가 통장 거래 소명 내역을 요청했는지 
+                                법률 용어의 의미를 체계적으로 해석하기 어렵기 때문입니다. 
+                                특히 부채의 성격상 불법 주식 매수 자금이나 가상 자산 투자 손실이 큰 부분을 차지할 경우, 
+                                도덕적 해이를 지적하며 원금 변제율을 90% 이상으로 대폭 올리라는 법원 측의 엄격한 보정 기준이 하달되기도 합니다. 
+                                이때 사행성 지출이 유발된 정신적 불안 증상이나 피해 유입 경위를 참작해 달라는 구체적인 서술형 진술서 및 소명 논리를 구성하는 것이 바로 노련한 전문 대리인의 가치입니다.
+                            </p>
+                            <p>
+                                최종 결정에 앞서 수임 계약을 조율할 때, 아래의 필수 요소들을 포함하고 있는지 종합 비교해 보아야 합니다.
+                            </p>
+                            <ul>
+                                <li>송달료 납입 영수증 및 법원 사건 일련번호 접수 확인서가 투명하게 공개되는지 여부</li>
+                                <li>채무자 대리인 자격 취득 후 즉각적인 카드 연체 및 대출 독촉 전화 차단 명령 신청 처리</li>
+                                <li>채권자 부당 이의 제기 및 기각 시 기각 보상제나 100% 수임료 환불 정책 설계 여부</li>
+                                <li>개인의 생활 반경을 고려하여 인접한 법원의 심판관 경향에 특화된 처리 이력 보유 여부</li>
+                            </ul>
+                            <p>
+                                과도하게 사은품 제공이나 무리한 수수료 할인을 주장하는 온라인 보이스 광고에 매몰되기보다는, 
+                                내돈내산으로 검증된 실질적인 구제 성공 확률 지표와 전국적 전문 브랜드 지위를 명확하게 고찰하시기를 조언드립니다.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Questions & Answers Section ("함께 많이 찾는" FAQ) -->
+        <section class="content-section" style="background-color: var(--light-bg); border-top: 1px solid #cbd5e1;">
+            <div class="container">
+                <h2>개인회생수수료 및 자가진단 관련 자주 묻는 핵심 질문</h2>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="faq-item" style="margin-bottom: 25px; border-bottom: 1px solid #e2e8f0; padding-bottom: 20px;">
+                            <h4 style="font-weight: 700; color: var(--primary-color);">Q. 대리인 수임료를 일시에 내기 곤란한데 분할 납부 제도가 정말 있나요?</h4>
+                            <p style="margin-top: 10px;">
+                                A. 네, 그렇습니다. 대다수의 도산 전담 법률 사무소에서는 신청인의 궁핍한 유동성 사정을 반영하여 
+                                전체 수수료 수임 가격을 계약 체결 시 1차 착수금으로 소액 지불한 후, 
+                                개시 결정 단계 및 인가 승인 시까지 수개월에 걸쳐 3회에서 최대 10회 안팎으로 균등 분납할 수 있도록 설계해 주고 있습니다. 
+                                일차적으로 고액 수임 비용에 대한 금전적 공포심을 거두고 안심하셔도 무방합니다.
+                            </p>
+                        </div>
+                        <div class="faq-item" style="margin-bottom: 25px; border-bottom: 1px solid #e2e8f0; padding-bottom: 20px;">
+                            <h4 style="font-weight: 700; color: var(--primary-color);">Q. 저렴한 법무사를 이용하는 것과 전문 변호사에게 전권을 맡기는 것의 중대한 차이점은 무엇인가요?</h4>
+                            <p style="margin-top: 10px;">
+                                A. 법무사는 정해진 제출 대행 행정 서류의 작성 대필 업무만을 단선적으로 위임받는 성격이 강합니다. 
+                                따라서 법원의 무서운 보정권고가 이어지거나 복잡한 채권 가액 분쟁이 일어날 경우 
+                                직접 법률 대리인 자격으로 법원 회생 위원과의 조율을 행하거나 채권자 이의소송 방어 대리를 진행하는 법적 권한이 상대적으로 좁습니다. 
+                                반면, 전문 변호사 수임 방식은 포괄적인 사법 대리권을 가지므로 사건 마무리 면책 단계까지 전체 사안을 온전하게 방어할 수 있다는 핵심적 장점이 뒤따릅니다.
+                            </p>
+                        </div>
+                        <div class="faq-item" style="margin-bottom: 25px; padding-bottom: 20px;">
+                            <h4 style="font-weight: 700; color: var(--primary-color);">Q. 최근에 신규 유입된 대출이나 현금 서비스 비율이 높아도 승인이 나나요?</h4>
+                            <p style="margin-top: 10px;">
+                                A. 신규 대출 비중이 자산 총액 대비 현저하게 높을 경우에는 
+                                법원이 사용처에 대한 소명 증명을 매우 철저하고 엄하게 다룹니다. 
+                                만약 해당 자금의 주된 유입 경로가 돌려막기나 생활비, 급격한 의료비 지출 등의 필수 생계적 소구였다면 소명이 성립되지만, 
+                                단순 명품 소비나 주식 투자 손실로 밝혀질 시에는 해당 빚을 감면해 주지 않는 방향으로 원금 탕감 비율이 엄하게 감축될 위험이 큽니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-  </body>
-</html>
+
+    <!-- Modal for Privacy Policy -->
+    <div id="privacyPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center;">
+        <div style="background: #ffffff; padding: 30px; border-radius: 12px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 15px; border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px;">개인정보 수집, 이용 및 제공 동의서</h3>
+            <p style="font-size: 0.9rem; color: #475569; line-height: 1.6; text-align: justify;">
+                본 센터는 개인정보보호법에 규정된 관련 규약들을 정밀히 준수합니다. <br><br>
+                1. 수집 항목: 이용자 성함, 휴대전화 연락처, 대략적인 총 채무액 규모, 거주 행정구역 분류.<br>
+                2. 처리 및 이용 용도: 2026년 법원별 개인회생수수료 예상액 계산 결과 통보, 최적의 무료 법률 자가 진단 및 개별 일대일 전화 상담 지원 등.<br>
+                3. 보유 기한: 접수 후 개인 정보 파기 원칙에 입각하여 최대 5개년 보관 후 자동 소멸 처리.<br>
+                사용자는 본 서비스 이용 관련 선택에 있어 거부할 수 있으나, 미동의 시에는 간편 자가진단 분석 결과의 개별 통지를 수령하기 어렵습니다.
+            </p>
+            <button type="button" class="btnCompare" style="margin-top: 20px; padding: 0.8rem;" onclick="hidePrivacyModal()">확인 및 닫기</button>
+        </div>
+    </div>
+
+    <!-- JS Logic and Core Preprocessing for interactive calculation -->
+    <script type="text/javascript" src="https://nawaracar.com/theme/barit/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://nawaracar.com/theme/barit/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Custom interactive calculation logic (Increases dwell time)
+        function calculateRehabCost() {
+            const income = parseFloat(document.getElementById('calc_income').value);
+            const family = parseInt(document.getElementById('calc_family').value);
+            const debt = parseFloat(document.getElementById('calc_debt').value);
+            const region = document.getElementById('calc_region').value;
+
+            if (!income || income <= 0) {
+                alert("본인의 소득 수준을 정확하게 입력해 주세요.");
+                return;
+            }
+            if (!debt || debt <= 0) {
+                alert("현재 부채 규모를 입력해 주세요.");
+                return;
+            }
+
+            // Standard minimum living cost projections for 2026 (60% of median income)
+            let livingCost = 0;
+            switch(family) {
+                case 1: livingCost = 141; break; // 1-person: approx 1.41 million KRW
+                case 2: livingCost = 233; break; // 2-person: approx 2.33 million KRW
+                case 3: livingCost = 299; break; // 3-person: approx 2.99 million KRW
+                case 4: default: livingCost = 364; break; // 4-person+: approx 3.64 million KRW
+            }
+
+            // Expected monthly payment: Income - Living Cost
+            let monthlyPay = income - livingCost;
+            if (monthlyPay < 0) {
+                monthlyPay = 0;
+            }
+
+            // Estimate legal cost factors based on region complexity
+            let baseCourtFee = 25; // Standard base filing/postal fee (10 creditors avg)
+            let attorneyFeeBase = 150; // Standard starter fee
+
+            if (region === 'seoul' || region === 'suwon') {
+                attorneyFeeBase = 180;
+            } else if (region === 'incheon' || region === 'busan') {
+                attorneyFeeBase = 190;
+                baseCourtFee = 28;
+            } else if (region === 'daegu' || region === 'gwangju') {
+                attorneyFeeBase = 170;
+            }
+
+            // Simple scaling if debt scale is huge
+            if (debt > 10000) {
+                attorneyFeeBase += 30;
+                baseCourtFee += 5;
+            }
+
+            const totalFee = baseCourtFee + attorneyFeeBase;
+
+            // Output values safely inside calculated DOM fields
+            document.getElementById('res_living_cost').innerText = livingCost + " 만원";
+            document.getElementById('res_monthly_pay').innerText = monthlyPay.toFixed(0) + " 만원";
+            document.getElementById('res_court_fee').innerText = baseCourtFee + " 만원";
+            document.getElementById('res_attorney_fee').innerText = attorneyFeeBase + " ~ " + (attorneyFeeBase + 40) + " 만원";
+            document.getElementById('res_total_fee').innerText = totalFee + " ~ " + (totalFee + 45) + " 만원";
+
+            // Show results section
+            document.getElementById('calc_result').style.display = 'block';
+        }
+
+        // Modal triggers
+        function showPrivacyModal() {
+            document.getElementById('privacyPopup').style.display = 'flex';
+        }
+
+        function hidePrivacyModal() {
+            document.getElementById('privacyPopup').style.display = 'none';
+        }
+
+        // Dynamic Form Formats Submission Hook (Keeps original JS processing framework structure)
+        $(document).ready(function () {
+            $("#btnSubmitS01").off("click").on("click", function () {
+                const name = $("#frmS01Name").val();
+                const phone = $("#phoneHead").val() + $("#frmS01Mphone").val();
+                const isChecked = $("#privacyAgree3").prop("checked");
+                
+                if(!name || name.trim() === "") {
+                    alert("성함을 올바르게 입력해 주세요.");
+                    return;
+                }
+                if(phone.length < 10) {
+                    alert("연락 가능한 올바른 전화번호를 입력해 주세요.");
+                    return;
+                }
+                if (!isChecked) {
+                    alert("약관 및 개인정보 동의는 필수 사항입니다.");
+                    showPrivacyModal();
+                    return;
+                }
+                
+                alert("자가진단 컨설팅 정보가 성공적으로 수집되었습니다. 즉각적으로 검토 보고서를 통보해 드리겠습니다.");
+            });
+
+            $("#btnSubmitS02").off("click").on("click", function () {
+                const name = $("#frmS02Name").val();
+                const phone = $("#phoneHead2").val() + $("#frmS02Mphone").val();
+                const isChecked = $("#privacyAgree2").prop("checked");
+                
+                if(!name || name.trim() === "") {
+                    alert("접수자명을 입력해 주세요.");
+                    return;
+                }
+                if(phone.length < 10) {
+                    alert("연락 가능한 올바른 연락처를 입력해 주세요.");
+                    return;
+                }
+                if (!isChecked) {
+                    alert("개인정보 처리 위탁 동의가 필요합니다.");
+                    showPrivacyModal();
+                    return;
+                }
+                
+                alert("신청이 정상 접수되었습니다. 담당 변호인단에서 신속하게 검토 전화를 드리겠습니다.");
+            });
+        });
+    </script>
+  
